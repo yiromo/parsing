@@ -1,10 +1,12 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from bs4 import BeautifulSoup
-import requests
 
-app = FastAPI()
+router = APIRouter(
+    prefix="/pars",
+    tags=["Lol"]
+)
 
-@app.get("/check/")
+@router.get("/check/")
 async def parse_check(check_url: str):
     pass
 
