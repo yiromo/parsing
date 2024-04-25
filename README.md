@@ -4,10 +4,10 @@
 pip install -r requirements.txt
 ```
 
-# after run main.py
+after run main.py
 
-## or use Docker
-### Docker Compose Build
+### or use Docker
+# Docker Compose Build
 
 ```bash
 docker compose up --build
