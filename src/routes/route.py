@@ -28,6 +28,3 @@ async def parse_check(check_url: str):
         return parsed_data
     except Exception as e:
         raise HTTPException(status_code=500)
-
-
-
