@@ -1,7 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_url(check_url: str):
+async def parse_data(data):
+    parsed_data = {}
+    for item in data:
+        parsed_data[item['name']] = item['info']
+    return parsed_data
+
+
+async def get_url(check_url: str):
     response = requests.get(check_url)
 
     soup = BeautifulSoup(response.content, "html.parser")
@@ -16,5 +23,4 @@ def get_url(check_url: str):
                 check_name = columns[0].text.strip()
                 check_price = columns[1].text.strip()
                 parsed_data.append({"name": check_name, "info": check_price})
-    return parsed_data
-
+    return await parse_data(parsed_data)
