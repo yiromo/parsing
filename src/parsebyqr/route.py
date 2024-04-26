@@ -10,4 +10,4 @@ router = APIRouter(
 async def parse_qr_code(file: UploadFile = File(...)):
     decoded_value = await decode_qr(file)
     parsed_data = await parse_decoded_qr(decoded_value)
-    return decoded_value
+    return parsed_data
