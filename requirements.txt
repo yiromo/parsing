@@ -1,5 +1,8 @@
 fastapi
 beautifulsoup4
-lxml
 requests
 uvicorn
+python-multipart
+opencv-python-headless
+pyzbar 
+numpy

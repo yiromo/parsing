@@ -9,9 +9,9 @@ async def parse_data(data):
 
 
 async def get_url(check_url: str):
-    response = requests.get(check_url)
+    r = requests.get(check_url)
 
-    soup = BeautifulSoup(response.content, "html.parser")
+    soup = BeautifulSoup(r.content, "html.parser")
     tables = soup.find_all('table')
 
     parsed_data = []
