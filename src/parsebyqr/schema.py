@@ -19,7 +19,7 @@ async def decode_qr(file: UploadFile):
 async def parse_decoded_qr(url:str):
     response = requests.get(url)
     if response.status_code == 200:
-        soup = BeautifulSoup(response.content, "html.parser")
+        soup = BeautifulSoup(response.content, "lxml")
         tag = soup.body
         
         ret = []
@@ -30,3 +30,13 @@ async def parse_decoded_qr(url:str):
         return ret
     else:
         raise HTTPException(status_code=404, detail="Lol")
+
+
+async def oofd_check(url: str):
+    response = requests.get(url, allow_redirects=True)
+    real_url = response.url
+    uid = real_url.split('=')[-1]
+    new_url = f'https://consumer.oofd.kz/api/tickets/ticket/{uid}'
+    response = requests.get(new_url)
+    data = response.json()
+    return data

@@ -6,3 +6,6 @@ python-multipart
 opencv-python-headless
 pyzbar 
 numpy
+selenium
+lxml
+chromedriver-autoinstaller
